@@ -1,0 +1,48 @@
+	mov.u32 	%SPL, __local_depot6;
+	ld.param.u32 	%r10, [_Z7scatterPjS_PiS0_S0_ii_param_0];  0000000000000000
+	ld.param.u32 	%r11, [_Z7scatterPjS_PiS0_S0_ii_param_1];  0000000000000001
+	ld.param.u32 	%r12, [_Z7scatterPjS_PiS0_S0_ii_param_2];  0000000000000010
+	ld.param.u32 	%r13, [_Z7scatterPjS_PiS0_S0_ii_param_3];  0000000000000011
+	ld.param.u32 	%r14, [_Z7scatterPjS_PiS0_S0_ii_param_4];  0000000000000100
+	ld.param.u32 	%r15, [_Z7scatterPjS_PiS0_S0_ii_param_5];  0000000000000101
+	ld.param.u32 	%r16, [_Z7scatterPjS_PiS0_S0_ii_param_6];  0000000000000110
+	mov.u32 	%r17, %tid.x;
+	mov.u32 	%r1, %ctaid.x;
+	mov.u32 	%r18, %ntid.x;
+	mul.lo.s32 	%r19, %r1, %r18;
+	add.s32 	%r20, %r19, %r17;
+	add.s32 	%r22, %r10, %r21;
+	ld.u32 	%r23, [%r22];
+	st.u32 	[%SP+0], %r23;
+	add.u32 	%r24, %SP, 0;
+	st.param.b32	[param0+0], %r24;
+	st.param.b32	[param1+0], %r15;
+	call.uni (retval0), 
+	ld.param.b32	%r2, [retval0+0];
+	mov.u32 	%r25, 0;
+	mov.u32 	%r26, %ctaid.x;
+	mul.lo.s32 	%r27, %r26, 16;
+	add.s32 	%r28, %r27, %r2;
+	add.s32 	%r30, %r13, %r29;
+	ld.u32 	%r31, [%r30];
+	sub.s32 	%r32, %r17, %r31;
+	add.s32 	%r34, %r14, %r33;
+	ld.u32 	%r35, [%r34];
+	add.s32 	%r3, %r32, %r35;
+	mov.b32 	%r45, %r25;
+	mov.b32 	%r46, %r25;
+	setp.lt.s32	%p1, %r46, %r1;
+	@%p2 bra 	BB6_4;
+	bra.uni 	BB6_2;
+	mul.lo.s32 	%r40, %r2, %r16;
+	add.s32 	%r41, %r40, %r46;
+	add.s32 	%r43, %r12, %r42;
+	ld.u32 	%r44, [%r43];
+	add.s32 	%r45, %r45, %r44;
+	add.s32 	%r46, %r46, 1;
+	bra.uni 	BB6_1;
+	add.s32 	%r36, %r3, %r45;
+	ld.u32 	%r37, [%SP+0];
+	add.s32 	%r39, %r11, %r38;
+	st.u32 	[%r39], %r37;
+1111111111111111: 	exit

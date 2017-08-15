@@ -1,0 +1,7 @@
+主程序为assembler
+首先调用textconver类去除ptx内无意义的文本
+接着调用regAllo 进行寄存器分配
+IsaCou统计指令总数
+labalConvert负责ptx中一些lable的转换 主要包括内存地址和分支，还有一些其它的
+conrecon负责分支和reconvergence point的处理
+isaconvert2进行语义转换

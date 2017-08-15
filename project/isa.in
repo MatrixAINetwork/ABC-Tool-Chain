@@ -1,0 +1,132 @@
+
+.visible .entry _Z7scatterPjS_PiS0_S0_ii(
+	.param .u32 _Z7scatterPjS_PiS0_S0_ii_param_0,
+	.param .u32 _Z7scatterPjS_PiS0_S0_ii_param_1,
+	.param .u32 _Z7scatterPjS_PiS0_S0_ii_param_2,
+	.param .u32 _Z7scatterPjS_PiS0_S0_ii_param_3,
+	.param .u32 _Z7scatterPjS_PiS0_S0_ii_param_4,
+	.param .u32 _Z7scatterPjS_PiS0_S0_ii_param_5,
+	.param .u32 _Z7scatterPjS_PiS0_S0_ii_param_6
+)
+{
+	.local .align 4 .b8 	__local_depot6[4];
+	.reg .b32 	%SP;
+	.reg .b32 	%SPL;
+	.reg .pred 	%p<3>;
+	.reg .s32 	%r<47>;
+
+
+	.loc 1 220 1
+func_begin6:
+	.loc	1 220 0
+
+	.loc 1 220 1
+
+	mov.u32 	%SPL, __local_depot6;
+	cvta.local.u32 	%SP, %SPL;
+	ld.param.u32 	%r10, [_Z7scatterPjS_PiS0_S0_ii_param_0];
+	ld.param.u32 	%r11, [_Z7scatterPjS_PiS0_S0_ii_param_1];
+	ld.param.u32 	%r12, [_Z7scatterPjS_PiS0_S0_ii_param_2];
+	ld.param.u32 	%r13, [_Z7scatterPjS_PiS0_S0_ii_param_3];
+	ld.param.u32 	%r14, [_Z7scatterPjS_PiS0_S0_ii_param_4];
+	ld.param.u32 	%r15, [_Z7scatterPjS_PiS0_S0_ii_param_5];
+	ld.param.u32 	%r16, [_Z7scatterPjS_PiS0_S0_ii_param_6];
+tmp108:
+func_exec_begin6:
+	.loc	1 223 1
+	mov.u32 	%r17, %tid.x;
+tmp109:
+	.loc	1 224 1
+	mov.u32 	%r1, %ctaid.x;
+tmp110:
+	.loc	1 225 1
+	mov.u32 	%r18, %ntid.x;
+	mul.lo.s32 	%r19, %r1, %r18;
+	add.s32 	%r20, %r19, %r17;
+tmp111:
+	.loc	1 227 1
+	shl.b32 	%r21, %r20, 2;
+	add.s32 	%r22, %r10, %r21;
+	ld.u32 	%r23, [%r22];
+	st.u32 	[%SP+0], %r23;
+	add.u32 	%r24, %SP, 0;
+	// Callseq Start 2
+	{
+	.reg .b32 temp_param_reg;
+	.loc	1 228 44
+	.param .b32 param0;
+	st.param.b32	[param0+0], %r24;
+	.param .b32 param1;
+	st.param.b32	[param1+0], %r15;
+	.param .b32 retval0;
+	call.uni (retval0), 
+	_Z11getBinIndexRji, 
+	(
+	param0, 
+	param1
+	);
+	ld.param.b32	%r2, [retval0+0];
+	}
+	// Callseq End 2
+	mov.u32 	%r25, 0;
+tmp112:
+	.loc	1 230 1
+	mov.u32 	%r26, %ctaid.x;
+	mul.lo.s32 	%r27, %r26, 16;
+	add.s32 	%r28, %r27, %r2;
+	shl.b32 	%r29, %r28, 2;
+	add.s32 	%r30, %r13, %r29;
+	ld.u32 	%r31, [%r30];
+	sub.s32 	%r32, %r17, %r31;
+	shl.b32 	%r33, %r2, 2;
+	add.s32 	%r34, %r14, %r33;
+	ld.u32 	%r35, [%r34];
+	add.s32 	%r3, %r32, %r35;
+tmp113:
+	.loc	1 232 1
+	mov.b32 	%r45, %r25;
+tmp114:
+	.loc	1 233 1
+	mov.b32 	%r46, %r25;
+tmp115:
+
+BB6_1:
+	.loc	1 233 1
+	setp.lt.s32	%p1, %r46, %r1;
+	not.pred 	%p2, %p1;
+	@%p2 bra 	BB6_4;
+	bra.uni 	BB6_2;
+
+BB6_2:
+	.loc	1 234 1
+tmp116:
+	mul.lo.s32 	%r40, %r2, %r16;
+	add.s32 	%r41, %r40, %r46;
+	shl.b32 	%r42, %r41, 2;
+	add.s32 	%r43, %r12, %r42;
+	ld.u32 	%r44, [%r43];
+	add.s32 	%r45, %r45, %r44;
+tmp117:
+
+	.loc	1 233 54
+	add.s32 	%r46, %r46, 1;
+tmp118:
+	bra.uni 	BB6_1;
+tmp119:
+
+BB6_4:
+	.loc	1 235 1
+	add.s32 	%r36, %r3, %r45;
+tmp120:
+	.loc	1 237 1
+	ld.u32 	%r37, [%SP+0];
+	shl.b32 	%r38, %r36, 2;
+	add.s32 	%r39, %r11, %r38;
+	st.u32 	[%r39], %r37;
+tmp121:
+	.loc	1 239 2
+	ret;
+tmp122:
+func_end6:
+}
+
